@@ -1,0 +1,46 @@
+.actor-photo {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.show-more {
+    display: flex;
+    align-items: center;
+}
+
+.show-more-btn {
+    position: absolute;
+    top: 40%;
+    background: none;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.slick-arrow::before {
+    color: black
+}
+
+.slick-track {
+    position: relative;
+    cursor: grab;
+}
+
+.slick-track:active {
+    cursor: grabbing;
+}
+
+.go-to-actor {
+    cursor: grab !important;
+    background: none;
+    border: none;
+}
+
+.go-to-actor:active {
+    cursor: grabbing !important;
+}
+
+.go-to-actor:focus {
+    outline: none;
+}
