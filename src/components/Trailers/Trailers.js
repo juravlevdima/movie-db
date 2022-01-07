@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Modal from "../Modal/Modal";
+import TrailerModal from "../TrailerModal/TrailerModal";
 
 const Trailers = ({videos}) => {
   const [videoKey, setVideoKey] = useState("")
@@ -31,7 +31,7 @@ const Trailers = ({videos}) => {
         </ul>
       </section>
 
-      {modal && <Modal setModal={setModal} video={videoKey}/>}
+      {modal && <TrailerModal setModal={setModal} video={videoKey}/>}
     </>
   );
 };

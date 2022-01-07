@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {buildStyles, CircularProgressbar} from "react-circular-progressbar";
 import {API_IMAGE} from "../../constants/api";
 
 import './FilmHero.css'
+import ImageModal from "../ImageModal/ImageModal";
 
 const FilmHero = ({film, crew}) => {
+  const [imageModal, setImageModal] = useState(false)
   const release_date = film.release_date?.slice(0, 4) || film.first_air_date?.slice(0, 4)
+
+  useEffect(() => {
+    document.body.style.overflow = imageModal ? "hidden" : "auto"
+  }, [imageModal])
 
   return (
     <section style={{
@@ -17,7 +23,7 @@ const FilmHero = ({film, crew}) => {
         <div className="row">
           <div className="col-sm-4 py-4">
             <div className="box">
-              <div className="position-relative">
+              <div onClick={() => setImageModal(true)} className="position-relative">
                 <img src={`${API_IMAGE}/w400${film.poster_path}`} alt={film.title} className="w-100 poster"/>
                 <span className="text-on-image">Увеличить</span>
               </div>
@@ -67,6 +73,8 @@ const FilmHero = ({film, crew}) => {
           </div>
         </div>
       </div>
+
+      {imageModal && <ImageModal image={film.poster_path} setModal={setImageModal}/>}
     </section>
   );
 };
