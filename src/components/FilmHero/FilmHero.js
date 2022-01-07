@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import {buildStyles, CircularProgressbar} from "react-circular-progressbar";
 import {API_IMAGE} from "../../constants/api";
 
@@ -16,7 +17,10 @@ const FilmHero = ({film, crew}) => {
         <div className="row">
           <div className="col-sm-4 py-4">
             <div className="box">
-              <img src={`${API_IMAGE}/w400${film.poster_path}`} alt={film.title} className="w-100"/>
+              <div className="position-relative">
+                <img src={`${API_IMAGE}/w400${film.poster_path}`} alt={film.title} className="w-100 poster"/>
+                <span className="text-on-image">Увеличить</span>
+              </div>
             </div>
           </div>
           <div className="col-sm-8 py-4 px-4">
@@ -52,7 +56,7 @@ const FilmHero = ({film, crew}) => {
                     return (
                       <div key={it.id} className="col-4 mb-2">
                         <div className="fw-bold">{it.job || "Created by"}:</div>
-                        <div>{it.name}</div>
+                        <Link to={`/actors/${it.id}`} className="text-white">{it.name}</Link>
                       </div>
                     )
                   })

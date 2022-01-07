@@ -60,9 +60,9 @@ const ActorsTrack = ({actors}) => {
     ]
   }
 
-  const goToActor = (e) => {
+  const goToActor = (e, id) => {
     if (Math.abs(e.clientX - coords) < 5) {
-      navigate("/")
+      navigate(`/actors/${id}`)
     }
   }
 
@@ -92,7 +92,7 @@ const ActorsTrack = ({actors}) => {
           actors?.slice(0, actorsNum)?.map(actor => {
             return (
               <div key={actor.id} className="p-3">
-                <button onMouseDown={(e) => setCoords(e.clientX)} onClick={goToActor} className="go-to-actor" type="button">
+                <button onMouseDown={(e) => setCoords(e.clientX)} onClick={(e) => goToActor(e, actor.id)} className="go-to-actor" type="button">
                   <img src={actor.profile_path ? `${API_IMAGE}/w200${actor.profile_path}` : anon}
                        className="actor-photo" alt={actor.name}/>
                   <h3>{actor.name}</h3>

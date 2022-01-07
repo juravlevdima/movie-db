@@ -7,6 +7,7 @@ import Film from "./pages/Film/Film";
 import Footer from "./components/Footer/Footer";
 import AllSerials from "./pages/AllSerials/AllSerials";
 import Serial from "./pages/Serial/Serial";
+import ActorInfo from "./pages/ActorInfo/ActorInfo";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/films/:id" element={<Film/>}/>
           <Route path="/serials" element={<AllSerials/>}/>
           <Route path="/serials/:id" element={<Serial/>}/>
+          <Route path="/actors/:id" element={<ActorInfo/>}/>
           <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </main>

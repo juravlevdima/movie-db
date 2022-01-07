@@ -25,3 +25,30 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.poster {
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.poster:hover {
+    border-radius: 15px;
+    filter: blur(3px) brightness(40%);
+}
+
+.poster:hover + .text-on-image {
+    opacity: 1;
+}
+
+.text-on-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: .2s;
+}

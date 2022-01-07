@@ -14,10 +14,8 @@ const AllSerials = () => {
 
   useEffect(() => {
     axios(`${API_BASE}/discover/tv?${API_KEY}&language=ru&page=${page}`)
-      .then(({data}) => {
-        setSerials(data.results)
-        setLoading(false)
-      })
+      .then(({data}) => setSerials(data.results))
+      .finally(() => setLoading(false))
   }, [page])
 
   if (loading) return <Spinner/>
@@ -33,7 +31,7 @@ const AllSerials = () => {
         }
       </div>
       <div className="mb-5 d-flex justify-content-end">
-        <Pagination page={page} setPage={setPage}/>
+        <Pagination page={page} setPage={setPage} setQuery={setQuery}/>
       </div>
     </div>
   );
