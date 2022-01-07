@@ -13,7 +13,7 @@ const ActorInfo = () => {
     axios(`${API_BASE}/person/${id}?${API_KEY}&language=ru`)
       .then(({data}) => setActor(data))
       .finally(() => setLoading(false))
-  }, [])
+  }, [id])
 
   if (loading) return <Spinner/>
 
