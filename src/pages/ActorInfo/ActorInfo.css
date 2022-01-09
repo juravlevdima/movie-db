@@ -1,0 +1,14 @@
+.biography {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.gradient {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, transparent 80%, white 100%);
+}

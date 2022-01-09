@@ -8,7 +8,12 @@ import ImageModal from "../ImageModal/ImageModal";
 
 const FilmHero = ({film, crew}) => {
   const [imageModal, setImageModal] = useState(false)
+  const [voteAverage, setVoteAverage] = useState(0)
   const release_date = film.release_date?.slice(0, 4) || film.first_air_date?.slice(0, 4)
+
+  useEffect(() => {
+    setTimeout(() => setVoteAverage(film.vote_average), 50)
+  })
 
   useEffect(() => {
     document.body.style.overflow = imageModal ? "hidden" : "auto"
@@ -42,11 +47,11 @@ const FilmHero = ({film, crew}) => {
               <div className="d-flex align-items-center mb-3">
                 <div className="rating me-3">
                   <CircularProgressbar
-                    value={film.vote_average * 10 || 0}
+                    value={voteAverage * 10 || 0}
                     text={`${film.vote_average * 10 || 0}%`}
                     styles={buildStyles({
                       textSize: '28px',
-                      pathTransitionDuration: 2.5
+                      pathTransitionDuration: 2.0
                     })}
                   />
                 </div>
