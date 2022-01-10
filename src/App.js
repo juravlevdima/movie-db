@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import Main from "./pages/Main/Main";
 import AllFilms from "./pages/AllFilms/AllFilms";
