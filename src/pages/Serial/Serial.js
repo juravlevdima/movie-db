@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom'
 import axios from "axios";
 
@@ -7,9 +7,12 @@ import FilmHero from "../../components/FilmHero/FilmHero";
 import ActorsTrack from "../../components/ActorsTrack/ActorsTrack";
 import Trailers from "../../components/Trailers/Trailers";
 import Spinner from "../../components/Spinner/Spinner";
+import {LanguageContext} from "../../context/LanguageContext";
 
 const Serial = () => {
   const {id} = useParams()
+  const {language} = useContext(LanguageContext)
+
   const [serial, setSerial] = useState({})
   const [actors, setActors] = useState([])
   const [crew, setCrew] = useState([])
@@ -18,7 +21,7 @@ const Serial = () => {
 
   useEffect(() => {
     // const jobs = ["Director", "Screenplay", "Original Music Composer", "Writer"]
-    const p1 = axios(`${API_BASE}/tv/${id}?${API_KEY}&language=ru`)
+    const p1 = axios(`${API_BASE}/tv/${id}?${API_KEY}&language=${language}`)
       .then(({data}) => {
         setSerial(data)
         setCrew(data.created_by)
@@ -36,7 +39,7 @@ const Serial = () => {
     Promise.all([p1,p2,p3])
       .catch((e) => console.log(e))
       .finally(() => setLoading(false))
-  }, [id])
+  }, [id, language])
 
   if (loading) return <Spinner/>
 

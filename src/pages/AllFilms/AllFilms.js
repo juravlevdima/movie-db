@@ -1,22 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
 import axios from "axios";
 import {API_BASE, API_KEY} from "../../constants/api";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import Pagination from "../../components/Pagination/Pagination";
 import Spinner from "../../components/Spinner/Spinner";
+import {LanguageContext} from "../../context/LanguageContext";
 
 const AllFilms = () => {
+  const {language} = useContext(LanguageContext)
   const [query, setQuery] = useSearchParams()
   const [movies, setMovies] = useState([])
   const [page, setPage] = useState(+query.get("page") || 1)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios(`${API_BASE}/discover/movie?${API_KEY}&language=ru&page=${page}`)
+    axios(`${API_BASE}/discover/movie?${API_KEY}&language=${language}&page=${page}`)
       .then(({data}) => setMovies(data.results))
       .finally(() => setLoading(false))
-  }, [page])
+  }, [page, language])
 
   if (loading) return <Spinner/>
 

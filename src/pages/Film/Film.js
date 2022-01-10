@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom'
 import axios from "axios";
 
@@ -7,9 +7,11 @@ import FilmHero from "../../components/FilmHero/FilmHero";
 import ActorsTrack from "../../components/ActorsTrack/ActorsTrack";
 import Trailers from "../../components/Trailers/Trailers";
 import Spinner from "../../components/Spinner/Spinner";
+import {LanguageContext} from "../../context/LanguageContext";
 
 const Film = () => {
   const {id} = useParams()
+  const {language} = useContext(LanguageContext)
 
   const [film, setFilm] = useState({})
   const [actors, setActors] = useState([])
@@ -20,7 +22,7 @@ const Film = () => {
   useEffect(() => {
     const jobs = ["Director", "Screenplay", "Original Music Composer", "Writer"]
 
-    const p1 = axios(`${API_BASE}/movie/${id}?${API_KEY}&language=ru`)
+    const p1 = axios(`${API_BASE}/movie/${id}?${API_KEY}&language=${language}`)
       .then(({data}) => {
         setFilm(data)
       })
@@ -37,7 +39,7 @@ const Film = () => {
     Promise.all([p1,p2,p3])
       .catch((e) => console.log(e))
       .finally(() => setLoading(false))
-  }, [id])
+  }, [id, language])
 
   if (loading) return <Spinner/>
 
