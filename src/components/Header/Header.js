@@ -5,7 +5,7 @@ import logo from '../../images/logo.svg'
 
 const Header = () => {
   return (
-    <header className="header py-3">
+    <header className="header py-1 py-sm-3">
       <div className="container">
         <div className="d-flex justify-content-between align-items-center">
           <Link to="/"><img className="logo" src={logo} alt="TMDB"/></Link>

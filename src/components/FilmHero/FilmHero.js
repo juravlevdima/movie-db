@@ -19,6 +19,7 @@ const FilmHero = ({film, crew}) => {
     document.body.style.overflow = imageModal ? "hidden" : "auto"
   }, [imageModal])
 
+
   return (
     <section style={{
       background: `rgba(0,0,0,.7) url("${API_IMAGE}/original${film.belongs_to_collection?.backdrop_path || film.backdrop_path}") center/cover`,

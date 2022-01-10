@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import axios from "axios";
-import './Film.css'
 
 import {API_BASE, API_KEY} from "../../constants/api";
 import FilmHero from "../../components/FilmHero/FilmHero";
 import ActorsTrack from "../../components/ActorsTrack/ActorsTrack";
 import Trailers from "../../components/Trailers/Trailers";
 import Spinner from "../../components/Spinner/Spinner";
-
 
 const Film = () => {
   const {id} = useParams()
@@ -80,7 +78,7 @@ const Film = () => {
         </div>
       </div>
 
-      <Trailers videos={videos}/>
+      <Trailers videos={videos} id={film.id} type="movie"/>
     </>
   );
 };

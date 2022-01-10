@@ -67,7 +67,7 @@ const ActorsTrack = ({actors}) => {
   }
 
   return (
-    <section>
+    <section className="overflow-hidden">
       <h2 className="mb-3">Актерский состав:</h2>
       {/*<div className="d-flex overflow-auto actors-track">*/}
       {/*  {*/}

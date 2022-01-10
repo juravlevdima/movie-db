@@ -43,8 +43,34 @@ const Serial = () => {
   return (
     <>
       <FilmHero film={serial} crew={crew}/>
-      <ActorsTrack actors={actors}/>
-      <Trailers videos={videos}/>
+      <div className="row">
+        <div className="col-md-9">
+          <ActorsTrack actors={actors}/>
+        </div>
+        <div className="col-md-3 px-5">
+          <div className="box">
+            <div className="fw-bold fs-4">Статус:</div>
+            <div className="fs-5">{serial.status}</div>
+            <hr/>
+            <div className="fw-bold fs-4 text-break">Сезонов:</div>
+            <div className="fs-5 mb-4">{serial.number_of_seasons}</div>
+            <div className="fw-bold fs-4 text-break">Количество эпизодов:</div>
+            <div className="fs-5 mb-4">{serial.number_of_episodes}</div>
+            <div className="fw-bold fs-4">Исходный язык:</div>
+            <div className="fs-5">{serial.original_language}</div>
+            <hr/>
+            <div className="fw-bold fs-4">Страны производства:</div>
+            <ul className="fs-5 mb-4">{serial.production_countries?.map((country,idx) => {
+              return <li key={idx}>{country.name}</li>
+            })}</ul>
+            <div className="fw-bold fs-4">Компании:</div>
+            <ul className="fs-5 mb-4">{serial.production_companies?.map(company => {
+              return <li key={company.id}>{company.name}</li>
+            })}</ul>
+          </div>
+        </div>
+      </div>
+      <Trailers videos={videos} id={serial.id} type="tv"/>
     </>
   );
 };
