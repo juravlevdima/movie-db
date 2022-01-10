@@ -45,7 +45,7 @@ const Trailers = ({videos, id, type}) => {
   useEffect(() => {
     axios(`${API_BASE}/${type}/${id}/images?${API_KEY}`)
       .then(({data}) => setPosters([...data.backdrops, ...data.posters]))
-  }, [])
+  }, [id, type])
 
   const toggleModal = (key) => {
     setVideoKey(key)
