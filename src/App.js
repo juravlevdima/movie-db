@@ -8,27 +8,24 @@ import Footer from "./components/Footer/Footer";
 import AllSerials from "./pages/AllSerials/AllSerials";
 import Serial from "./pages/Serial/Serial";
 import ActorInfo from "./pages/ActorInfo/ActorInfo";
-import LanguageProvider from "./context/LanguageContext";
 
 const App = () => {
   return (
-    <LanguageProvider>
-      <div className="wrapper">
-        <Header/>
-        <main className="main">
-          <Routes>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/films" element={<AllFilms/>}/>
-            <Route path="/films/:id" element={<Film/>}/>
-            <Route path="/serials" element={<AllSerials/>}/>
-            <Route path="/serials/:id" element={<Serial/>}/>
-            <Route path="/actors/:id" element={<ActorInfo/>}/>
-            <Route path="*" element={<Navigate to="/"/>}/>
-          </Routes>
-        </main>
-        <Footer/>
-      </div>
-    </LanguageProvider>
+    <div className="wrapper">
+      <Header/>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Main/>}/>
+          <Route path="/films" element={<AllFilms/>}/>
+          <Route path="/films/:id" element={<Film/>}/>
+          <Route path="/serials" element={<AllSerials/>}/>
+          <Route path="/serials/:id" element={<Serial/>}/>
+          <Route path="/actors/:id" element={<ActorInfo/>}/>
+          <Route path="*" element={<Navigate to="/"/>}/>
+        </Routes>
+      </main>
+      <Footer/>
+    </div>
   );
 };
 

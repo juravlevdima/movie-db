@@ -7,11 +7,14 @@ import "slick-carousel/slick/slick-theme.css";
 import 'react-circular-progressbar/dist/styles.css';
 import './index.css';
 import App from './App';
+import LanguageProvider from "./context/LanguageContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -62,23 +62,25 @@ const Trailers = ({videos, id, type}) => {
         <h3 className="mb-4">Трейлеры:</h3>
         <Slider {...carouselSettings}>
           {
-            videos.sort(it => it.type === "Trailer" ? -1 : 1).map((it, idx) => {
-              const poster = posters[idx]
-                ? `${API_IMAGE}/w300${posters[idx]?.file_path}`
-                : `${API_IMAGE}/w300${posters[0]?.file_path}`
+            videos
+              .sort(it => it.type === "Trailer" ? -1 : 1)
+              .map((it, idx) => {
+                const poster = posters[idx]
+                  ? `${API_IMAGE}/w300${posters[idx]?.file_path}`
+                  : `${API_IMAGE}/w300${posters[0]?.file_path}`
 
-              return (
-                <div className="px-2" key={it.id}>
-                  <div className="position-relative">
-                    <img src={poster} className="trailer-img" alt={it.name}/>
-                    <button onClick={() => toggleModal(it.key)} className="play-btn" type="button">
-                      <img src={play} alt="play"/>
-                    </button>
+                return (
+                  <div className="px-2" key={it.id}>
+                    <div className="position-relative">
+                      <img src={poster} className="trailer-img" alt={it.name}/>
+                      <button onClick={() => toggleModal(it.key)} className="play-btn" type="button">
+                        <img src={play} alt="play"/>
+                      </button>
+                    </div>
+                    <div className="fw-bold fs-5 text-center">{it.name}</div>
                   </div>
-                  <div className="fw-bold fs-5 text-center">{it.name}</div>
-                </div>
-              )
-            })
+                )
+              })
           }
         </Slider>
       </section>

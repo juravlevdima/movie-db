@@ -87,26 +87,33 @@ const ActorsTrack = ({actors}) => {
       {/*  </div>}*/}
       {/*</div>*/}
 
-      <Slider {...carouselSettings}>
-        {
-          actors?.slice(0, actorsNum)?.map(actor => {
-            return (
-              <div key={actor.id} className="p-3">
-                <button onMouseDown={(e) => setCoords(e.clientX)} onClick={(e) => goToActor(e, actor.id)} className="go-to-actor" type="button">
-                  <img src={actor.profile_path ? `${API_IMAGE}/w200${actor.profile_path}` : anon}
-                       className="actor-photo" alt={actor.name}/>
-                  <h3>{actor.name}</h3>
-                </button>
-              </div>
-            )
-          })
-        }
-        {actorsNum < actors.length && <div className="show-more">
-          <button className="show-more-btn" onClick={() => setActorsNum(actorsNum + 10)} type="button">
-            Смотреть еще...
-          </button>
-        </div>}
-      </Slider>
+      <div className="px-4">
+        <Slider {...carouselSettings}>
+          {
+            actors?.slice(0, actorsNum)?.map(actor => {
+              return (
+                <div key={actor.id}>
+                  <button
+                    onMouseDown={(e) => setCoords(e.clientX)}
+                    onClick={(e) => goToActor(e, actor.id)}
+                    className="go-to-actor"
+                    type="button"
+                  >
+                    <img src={actor.profile_path ? `${API_IMAGE}/w200${actor.profile_path}` : anon}
+                         className="actor-photo" alt={actor.name}/>
+                    <h3>{actor.name}</h3>
+                  </button>
+                </div>
+              )
+            })
+          }
+          {actorsNum < actors.length && <div className="show-more">
+            <button className="show-more-btn" onClick={() => setActorsNum(actorsNum + 10)} type="button">
+              Смотреть еще...
+            </button>
+          </div>}
+        </Slider>
+      </div>
 
     </section>
   );
