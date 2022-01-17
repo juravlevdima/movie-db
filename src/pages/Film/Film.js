@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useParams} from 'react-router-dom'
 import axios from "axios";
+import {FormattedMessage} from 'react-intl'
 
 import {API_BASE, API_KEY} from "../../constants/api";
 import FilmHero from "../../components/FilmHero/FilmHero";
@@ -54,24 +55,38 @@ const Film = () => {
           </div>
           <div className="col-md-3 px-5">
             <div className="box">
-              <div className="fw-bold fs-4">Статус:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="status"/>
+              </div>
               <div className="fs-5">{film.status}</div>
               <hr/>
-              <div className="fw-bold fs-4">Бюджет:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="budget"/>
+              </div>
               <div className="fs-5 mb-4">$ {film.budget?.toLocaleString('en')}</div>
-              <div className="fw-bold fs-4">Сборы:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="revenue"/>
+              </div>
               <div className="fs-5">$ {film.revenue?.toLocaleString('en')}</div>
               <hr/>
-              <div className="fw-bold fs-4 text-break">Продолжительность:</div>
+              <div className="fw-bold fs-4 text-break">
+                <FormattedMessage id="runtime"/>
+              </div>
               <div className="fs-5 mb-4">{Math.trunc(film.runtime / 60)} ч. {film.runtime % 60} мин.</div>
-              <div className="fw-bold fs-4">Исходный язык:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="original_language"/>
+              </div>
               <div className="fs-5">{film.original_language}</div>
               <hr/>
-              <div className="fw-bold fs-4">Страны производства:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="production_countries"/>
+              </div>
               <ul className="fs-5 mb-4">{film.production_countries?.map((country,idx) => {
                 return <li key={idx}>{country.name}</li>
               })}</ul>
-              <div className="fw-bold fs-4">Компании:</div>
+              <div className="fw-bold fs-4">
+                <FormattedMessage id="companies"/>
+              </div>
               <ul className="fs-5 mb-4">{film.production_companies?.map(company => {
                 return <li key={company.id}>{company.name}</li>
               })}</ul>

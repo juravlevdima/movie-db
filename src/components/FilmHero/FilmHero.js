@@ -5,6 +5,7 @@ import {API_IMAGE} from "../../constants/api";
 
 import './FilmHero.css'
 import ImageModal from "../ImageModal/ImageModal";
+import {FormattedMessage} from "react-intl";
 
 const FilmHero = ({film, crew}) => {
   const [imageModal, setImageModal] = useState(false)
@@ -31,7 +32,9 @@ const FilmHero = ({film, crew}) => {
             <div className="box">
               <div onClick={() => setImageModal(true)} className="position-relative">
                 <img src={`${API_IMAGE}/w400${film.poster_path}`} alt={film.title} className="w-100 poster"/>
-                <span className="text-on-image">Увеличить</span>
+                <span className="text-on-image">
+                  <FormattedMessage id="expand"/>
+                </span>
               </div>
             </div>
           </div>
@@ -56,10 +59,14 @@ const FilmHero = ({film, crew}) => {
                     })}
                   />
                 </div>
-                <div className="fw-bold fs-5">Оценка зрителей</div>
+                <div className="fw-bold fs-5">
+                  <FormattedMessage id="user_score"/>
+                </div>
               </div>
 
-              <h3>Обзор:</h3>
+              <h3>
+                <FormattedMessage id="overview"/>
+              </h3>
               <div className="mb-3">{film.overview}</div>
 
               <div className="row">

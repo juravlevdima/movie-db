@@ -5,6 +5,7 @@ import {API_IMAGE} from "../../constants/api";
 import anon from "../../images/anon.png";
 
 import "./ActorsTrack.css"
+import {FormattedMessage} from "react-intl";
 
 const ActorsTrack = ({actors}) => {
   const navigate = useNavigate()
@@ -68,7 +69,9 @@ const ActorsTrack = ({actors}) => {
 
   return (
     <section className="overflow-hidden">
-      <h2 className="mb-3">Актерский состав:</h2>
+      <h2 className="mb-3">
+        <FormattedMessage id="cast"/>
+      </h2>
       {/*<div className="d-flex overflow-auto actors-track">*/}
       {/*  {*/}
       {/*    actors?.slice(0, actorsNum)?.map(actor => {*/}
@@ -109,7 +112,7 @@ const ActorsTrack = ({actors}) => {
           }
           {actorsNum < actors.length && <div className="show-more">
             <button className="show-more-btn" onClick={() => setActorsNum(actorsNum + 10)} type="button">
-              Смотреть еще...
+              <FormattedMessage id="show_more"/>
             </button>
           </div>}
         </Slider>

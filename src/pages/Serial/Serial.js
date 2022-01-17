@@ -8,6 +8,7 @@ import ActorsTrack from "../../components/ActorsTrack/ActorsTrack";
 import Trailers from "../../components/Trailers/Trailers";
 import Spinner from "../../components/Spinner/Spinner";
 import {LanguageContext} from "../../context/LanguageContext";
+import {FormattedMessage} from "react-intl";
 
 const Serial = () => {
   const {id} = useParams()
@@ -52,21 +53,33 @@ const Serial = () => {
         </div>
         <div className="col-md-3 px-5">
           <div className="box">
-            <div className="fw-bold fs-4">Статус:</div>
+            <div className="fw-bold fs-4">
+              <FormattedMessage id="status"/>
+            </div>
             <div className="fs-5">{serial.status}</div>
             <hr/>
-            <div className="fw-bold fs-4 text-break">Сезонов:</div>
+            <div className="fw-bold fs-4 text-break">
+              <FormattedMessage id="number_of_seasons"/>
+            </div>
             <div className="fs-5 mb-4">{serial.number_of_seasons}</div>
-            <div className="fw-bold fs-4 text-break">Количество эпизодов:</div>
+            <div className="fw-bold fs-4 text-break">
+              <FormattedMessage id="number_of_episodes"/>
+            </div>
             <div className="fs-5 mb-4">{serial.number_of_episodes}</div>
-            <div className="fw-bold fs-4">Исходный язык:</div>
+            <div className="fw-bold fs-4">
+              <FormattedMessage id="original_language"/>
+            </div>
             <div className="fs-5">{serial.original_language}</div>
             <hr/>
-            <div className="fw-bold fs-4">Страны производства:</div>
+            <div className="fw-bold fs-4">
+              <FormattedMessage id="production_countries"/>
+            </div>
             <ul className="fs-5 mb-4">{serial.production_countries?.map((country,idx) => {
               return <li key={idx}>{country.name}</li>
             })}</ul>
-            <div className="fw-bold fs-4">Компании:</div>
+            <div className="fw-bold fs-4">
+              <FormattedMessage id="companies"/>
+            </div>
             <ul className="fs-5 mb-4">{serial.production_companies?.map(company => {
               return <li key={company.id}>{company.name}</li>
             })}</ul>

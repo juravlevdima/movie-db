@@ -5,6 +5,7 @@ import './Trailers.css'
 import {API_BASE, API_IMAGE, API_KEY} from "../../constants/api";
 import play from '../../images/play.png';
 import axios from "axios";
+import {FormattedMessage} from "react-intl";
 
 const Trailers = ({videos, id, type}) => {
   const [videoKey, setVideoKey] = useState("")
@@ -59,7 +60,9 @@ const Trailers = ({videos, id, type}) => {
   return (
     <>
       <section className="px-4 px-sm-5">
-        <h3 className="mb-4">Трейлеры:</h3>
+        <h3 className="mb-4">
+          <FormattedMessage id="trailers"/>
+        </h3>
         <Slider {...carouselSettings}>
           {
             videos

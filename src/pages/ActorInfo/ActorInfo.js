@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import Spinner from "../../components/Spinner/Spinner";
 import {LanguageContext} from "../../context/LanguageContext";
 import './ActorInfo.css'
+import {FormattedMessage} from "react-intl";
 
 const ActorInfo = () => {
   const {id} = useParams()
@@ -39,7 +40,9 @@ const ActorInfo = () => {
         </div>
         <div className="col-9 py-4 ps-4">
           <h1 className="mb-4">{actor.name}</h1>
-          <div className="fs-4 fw-bold mb-2">Биография:</div>
+          <div className="fs-4 fw-bold mb-2">
+            <FormattedMessage id="biography"/>
+          </div>
           <div ref={biographyRef} className={`position-relative ${!biography && "biography"}`}>
             <p>{actor.biography || "Нет информации"}</p>
             <div hidden={biography} className="gradient"> </div>
@@ -49,7 +52,7 @@ const ActorInfo = () => {
             className={`${biography ? "d-none" : "d-block"} border-0 bg-transparent fs-5 text-primary ms-auto`}
             type="button"
           >
-            Читать далее...
+            <FormattedMessage id="read_more"/>
           </button>
         </div>
       </div>

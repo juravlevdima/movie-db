@@ -1,6 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
 import axios from "axios";
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 import {API_BASE, API_KEY} from "../../constants/api";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import Pagination from "../../components/Pagination/Pagination";
@@ -25,13 +27,21 @@ const AllFilms = () => {
   return (
     <div className="container">
       <Pagination page={page} setPage={setPage} setQuery={setQuery}/>
-      <div className="row">
+      <TransitionGroup className="row">
         {
           movies.map(film => {
-            return <MovieCard key={film.id} film={film} />
+            return (
+              <CSSTransition
+                key={film.id}
+                timeout={300}
+                classNames="film"
+              >
+                <MovieCard film={film} />
+              </CSSTransition>
+            )
           })
         }
-      </div>
+      </TransitionGroup>
       <div className="mb-5 d-flex justify-content-end">
         <Pagination page={page} setPage={setPage} setQuery={setQuery}/>
       </div>

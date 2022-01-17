@@ -6,6 +6,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import SerialCard from "../../components/SerialCard/SerialCard";
 import Spinner from "../../components/Spinner/Spinner";
 import {LanguageContext} from "../../context/LanguageContext";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 const AllSerials = () => {
   const {language} = useContext(LanguageContext)
@@ -25,13 +26,21 @@ const AllSerials = () => {
   return (
     <div className="container">
       <Pagination page={page} setPage={setPage} setQuery={setQuery}/>
-      <div className="row">
+      <TransitionGroup className="row">
         {
           serials.map(serial => {
-            return <SerialCard key={serial.id} serial={serial} />
+            return (
+              <CSSTransition
+                key={serial.id}
+                timeout={300}
+                classNames="film"
+              >
+                <SerialCard serial={serial} />
+              </CSSTransition>
+            )
           })
         }
-      </div>
+      </TransitionGroup>
       <div className="mb-5 d-flex justify-content-end">
         <Pagination page={page} setPage={setPage} setQuery={setQuery}/>
       </div>
