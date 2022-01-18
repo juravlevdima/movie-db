@@ -17,6 +17,12 @@ const Header = () => {
     setLanguage(language === LOCALES.RUSSIAN ? LOCALES.ENGLISH : LOCALES.RUSSIAN)
   }
 
+  const closeMenu = () => {
+    setTimeout(() => {
+      setBurgerMenu(false)
+    }, 150)
+  }
+
   return (
     <>
       <header className="header py-1 py-sm-3">
@@ -36,7 +42,7 @@ const Header = () => {
               </button>
             </nav>
             <div className="d-sm-none">
-              <button onClick={() => setBurgerMenu(!burgerMenu)} type="button" className="btn">
+              <button onBlur={closeMenu} onClick={() => setBurgerMenu(!burgerMenu)} type="button" className="btn">
                 <img className="menu-btn" src={menu} alt="Menu"/>
               </button>
             </div>
@@ -51,10 +57,10 @@ const Header = () => {
         unmountOnExit
       >
         <div className="burger">
-          <NavLink onClick={() => setBurgerMenu(false)} to="/films?page=1" className="btn btn-success me-2">
+          <NavLink to="/films?page=1" className="btn btn-success me-2">
             <FormattedMessage id='movies' />
           </NavLink>
-          <NavLink onClick={() => setBurgerMenu(false)} to="/serials?page=1" className="btn btn-success me-2">
+          <NavLink to="/serials?page=1" className="btn btn-success me-2">
             <FormattedMessage id='serials' />
           </NavLink>
           <button onClick={changeLang} className="btn btn-success">
