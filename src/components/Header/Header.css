@@ -10,3 +10,38 @@
 .logo {
     width: 150px;
 }
+
+.menu-btn {
+    width: 30px;
+}
+
+.burger {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 47px;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    background: rgb(3,37,65);
+    padding: 10px 0;
+}
+
+.burger-enter {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+.burger-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 300ms;
+}
+.burger-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+.burger-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 300ms;
+}
