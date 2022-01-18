@@ -21,7 +21,10 @@ const messages = {
     expand: 'Expand',
     go_to: 'Go to',
     biography: 'Biography',
-    read_more: 'Read more...'
+    read_more: 'Read more...',
+    filmography: 'Filmography (cast):',
+    filmography_crew: 'Filmography (crew):',
+    as: 'as '
   },
 
   [LOCALES.RUSSIAN]: {
@@ -44,7 +47,10 @@ const messages = {
     expand: 'Увеличить',
     go_to: 'Перейти',
     biography: 'Биография',
-    read_more: 'Читать далее...'
+    read_more: 'Читать далее...',
+    filmography: 'Фильмография (как актер):',
+    filmography_crew: 'Фильмография (как съемочная команда):',
+    as: 'как '
   },
 }
 

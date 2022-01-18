@@ -73,7 +73,7 @@ const FilmHero = ({film, crew}) => {
                 {
                   crew.map(it => {
                     return (
-                      <div key={it.id} className="col-4 mb-2">
+                      <div key={it.credit_id} className="col-4 mb-2">
                         <div className="fw-bold">{it.job || "Created by"}:</div>
                         <Link to={`/actors/${it.id}`} className="text-white">{it.name}</Link>
                       </div>
