@@ -10,7 +10,7 @@ const SearchResults = () => {
   const {query} = useParams()
   const [movies, setMovies] = useState([])
   const [serials, setSerials] = useState([])
-  const [actors, setActors] = useState([])
+  // const [actors, setActors] = useState([])
 
   useEffect(() => {
     axios(`${API_BASE}/search/movie?${API_KEY}&query=${query}`)
@@ -18,7 +18,7 @@ const SearchResults = () => {
 
     axios(`${API_BASE}/search/tv?${API_KEY}&query=${query}`)
       .then(({data}) => setSerials(data.results))
-  }, [])
+  }, [query])
 
   return (
     <div className="container">
