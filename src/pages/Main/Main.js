@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import {FormattedMessage, useIntl} from "react-intl";
 import axios from "axios";
 import {API_BASE, API_IMAGE, API_KEY} from "../../constants/api";
 import './Main.css'
@@ -7,6 +8,7 @@ import './Main.css'
 
 const Main = () => {
   const navigate = useNavigate()
+  const intl = useIntl()
   const [searchBackdrop, setSearchBackdrop] = useState(null)
   const [searchInput, setSearchInput] = useState('')
 
@@ -31,17 +33,19 @@ const Main = () => {
           backgroundBlendMode: 'darken' // 'exclusion' or 'saturation' or 'luminosity'
         }}
       >
-        <h1 className="text-white text-center pt-5 px-5">
-          Добро пожаловать на сайт, здесь вы найдете информацию о популярных фильмах, сериалах и актерах
+        <h1 className="text-white text-center pt-5 px-5 fs-2">
+          <FormattedMessage id="main_title"/>
         </h1>
         <div className="search-bar">
           <input
             onChange={(e) => setSearchInput(e.target.value)}
             className="search-input"
             type="text"
-            placeholder="Поиск..."
+            placeholder={intl.formatMessage({id: "search_placeholder"})}
           />
-          <button onClick={search} className="search-btn">Найти</button>
+          <button onClick={search} className="search-btn">
+            <FormattedMessage id="search"/>
+          </button>
         </div>
       </section>
     </>

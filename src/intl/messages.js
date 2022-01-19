@@ -24,7 +24,11 @@ const messages = {
     read_more: 'Read more...',
     filmography: 'Filmography (cast):',
     filmography_crew: 'Filmography (crew):',
-    as: 'as '
+    as: 'as ',
+    search: 'Search',
+    search_placeholder: 'Search...',
+    main_title: 'Welcome to the site, here you will find information about popular films, series and actors',
+    data_provided: 'Data provided by '
   },
 
   [LOCALES.RUSSIAN]: {
@@ -50,7 +54,11 @@ const messages = {
     read_more: 'Читать далее...',
     filmography: 'Фильмография (как актер):',
     filmography_crew: 'Фильмография (как съемочная команда):',
-    as: 'как '
+    as: 'как ',
+    search: 'Найти',
+    search_placeholder: 'Найти...',
+    main_title: 'Добро пожаловать на сайт, здесь вы найдете информацию о популярных фильмах, сериалах и актерах',
+    data_provided: 'Данные предоставлены сайтом '
   },
 }
 
