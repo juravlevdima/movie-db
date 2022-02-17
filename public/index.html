@@ -39,5 +39,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if (process.env.NODE_ENV === 'production' && typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+        __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
+      }
+    </script>
   </body>
 </html>
