@@ -39,11 +39,11 @@ const ActorInfo = () => {
 
   }, [id, language])
 
-  useEffect(() => {
-    if (!loading && parseInt(window.getComputedStyle(biographyRef.current).height) < 300) {
-      setBiography(true)
-    }
-  }, [loading])
+  // useEffect(() => {
+  //   if (!loading && parseInt(window.getComputedStyle(biographyRef.current).height) < 300) {
+  //     setBiography(true)
+  //   }
+  // }, [loading])
 
   if (loading) return <Spinner/>
 
