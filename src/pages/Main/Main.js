@@ -4,6 +4,7 @@ import {FormattedMessage, useIntl} from "react-intl";
 import axios from "axios";
 import {API_BASE, API_IMAGE, API_KEY} from "../../constants/api";
 import './Main.css'
+import Popular from "../../components/Popular/Popular.js";
 
 
 const Main = () => {
@@ -48,6 +49,7 @@ const Main = () => {
           </button>
         </div>
       </section>
+      <Popular/>
     </>
   );
 };

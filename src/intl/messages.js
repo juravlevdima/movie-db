@@ -28,7 +28,8 @@ const messages = {
     search: 'Search',
     search_placeholder: 'Search...',
     main_title: 'Welcome to the site, here you will find information about popular films, series and actors',
-    data_provided: 'Data provided by '
+    data_provided: 'Data provided by ',
+    popular: "TMDB Top Rated"
   },
 
   [LOCALES.RUSSIAN]: {
@@ -58,7 +59,8 @@ const messages = {
     search: 'Найти',
     search_placeholder: 'Найти...',
     main_title: 'Добро пожаловать на сайт, здесь вы найдете информацию о популярных фильмах, сериалах и актерах',
-    data_provided: 'Данные предоставлены сайтом '
+    data_provided: 'Данные предоставлены сайтом ',
+    popular: "Топ фильмов TMDB"
   },
 }
 
