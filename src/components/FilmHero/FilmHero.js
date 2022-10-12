@@ -52,7 +52,7 @@ const FilmHero = ({film, crew}) => {
                 <div className="rating me-3">
                   <CircularProgressbar
                     value={voteAverage * 10 || 0}
-                    text={`${film.vote_average * 10 || 0}%`}
+                    text={`${Math.round(film.vote_average * 10) || 0}%`}
                     styles={buildStyles({
                       textSize: '28px',
                       pathTransitionDuration: 2.0
